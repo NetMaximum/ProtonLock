@@ -1,4 +1,4 @@
-﻿namespace Netmaximum.ProtoLock;
+﻿namespace Netmaximum.ProtonLock;
 
 public class Class1
 {

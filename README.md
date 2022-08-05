@@ -1,4 +1,4 @@
-# Netmaximum.ProtoLock 
+# Netmaximum.ProtonLock 
 
 ## Setting up [codecov.io](https://about.codecov.io)
 

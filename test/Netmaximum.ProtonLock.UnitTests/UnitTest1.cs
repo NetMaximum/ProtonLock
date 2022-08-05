@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Netmaximum.ProtoLock.UnitTests;
+namespace Netmaximum.ProtonLock.UnitTests;
 
 public class UnitTest1
 {

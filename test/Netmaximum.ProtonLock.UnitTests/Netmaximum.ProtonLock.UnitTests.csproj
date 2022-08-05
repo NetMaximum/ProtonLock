@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Netmaximum.ProtoLock\Netmaximum.ProtoLock.csproj" />
+      <ProjectReference Include="..\..\src\Netmaximum.ProtonLock\Netmaximum.ProtonLock.csproj" />
     </ItemGroup>
 
 </Project>

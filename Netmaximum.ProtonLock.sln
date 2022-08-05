@@ -6,15 +6,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0A932642-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "support", "support", "{B05132CE-4219-444E-91DD-35661808B15B}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\Netmaximum.ProtoLock.yaml = .github\workflows\Netmaximum.ProtoLock.yaml
+		.github\workflows\Netmaximum.ProtonLock.yaml = .github\workflows\Netmaximum.ProtonLock.yaml
 		README.md = README.md
 		GitVersion.yml = GitVersion.yml
 		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netmaximum.ProtoLock", "src\Netmaximum.ProtoLock\Netmaximum.ProtoLock.csproj", "{F5F384E5-3F3A-474C-BCBD-B207E3ABBB0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netmaximum.ProtonLock", "src\Netmaximum.ProtonLock\Netmaximum.ProtonLock.csproj", "{F5F384E5-3F3A-474C-BCBD-B207E3ABBB0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netmaximum.ProtoLock.UnitTests", "test\Netmaximum.ProtoLock.UnitTests\Netmaximum.ProtoLock.UnitTests.csproj", "{95D5BBFC-73FD-4E57-B784-5CED1AA77AC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netmaximum.ProtonLock.UnitTests", "test\Netmaximum.ProtonLock.UnitTests\Netmaximum.ProtonLock.UnitTests.csproj", "{95D5BBFC-73FD-4E57-B784-5CED1AA77AC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

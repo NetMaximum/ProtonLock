@@ -39,18 +39,18 @@ jobs:
         run: dotnet nuget add source --username NetMaximum --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/NetMaximum/index.json"
 
       - name: Build
-        run: dotnet build ./Netmaximum.ProtoLock.sln --configuration Release --no-restore /p:Version=$GITVERSION_MAJORMINORPATCH
+        run: dotnet build ./Netmaximum.ProtonLock.sln --configuration Release --no-restore /p:Version=$GITVERSION_MAJORMINORPATCH
 
       - name: Test
-        run: dotnet test ./Netmaximum.ProtoLock.sln -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover --no-build --verbosity normal --no-restore -c Release
+        run: dotnet test ./Netmaximum.ProtonLock.sln -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover --no-build --verbosity normal --no-restore -c Release
 
       - name: Pack
         if: github.ref == 'refs/heads/main'
-        run: dotnet pack src/Netmaximum.ProtoLock/Netmaximum.ProtoLock.csproj --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_MAJORMINORPATCH
+        run: dotnet pack src/Netmaximum.ProtonLock/Netmaximum.ProtonLock.csproj --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_MAJORMINORPATCH
 
       - name: Pack
         if: github.event_name == 'pull_request'
-        run: dotnet pack src/Netmaximum.ProtoLock/Netmaximum.ProtoLock.csproj --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_NUGETVERSION
+        run: dotnet pack src/Netmaximum.ProtonLock/Netmaximum.ProtonLock.csproj --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_NUGETVERSION
 
 
 
