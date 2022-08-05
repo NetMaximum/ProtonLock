@@ -63,7 +63,8 @@ jobs:
           path: ./nupkgs/
 
       - name: Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
+        
       
     outputs:
       version: ${{ steps.gitversion.outputs.majorMinorPatch }}
