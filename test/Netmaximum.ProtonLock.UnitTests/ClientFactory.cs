@@ -29,9 +29,7 @@ public class ClientFactory : IAsyncLifetime
         
         
         configuration.EndPoints.Add(_redis.ConnectionString);
-        RedisConnection = ConnectionMultiplexer.Connect(configuration);
-
-            // return Task.CompletedTask;
+        RedisConnection = await ConnectionMultiplexer.ConnectAsync(configuration);
     }
 
     public async Task DisposeAsync()

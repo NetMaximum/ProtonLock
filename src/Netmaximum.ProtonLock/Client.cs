@@ -2,7 +2,7 @@
 
 namespace Netmaximum.ProtonLock;
 
-public class Client
+public class Client : IClient
 {
     private readonly IConnectionMultiplexer _connectionMultiplexer;
     private readonly TimeSpan _elapsed;
