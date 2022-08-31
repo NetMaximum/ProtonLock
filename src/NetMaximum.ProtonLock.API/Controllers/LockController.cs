@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Netmaximum.ProtonLock;
 using NetMaximum.ProtonLock.API.Models;
 
 namespace NetMaximum.ProtonLock.API.Controllers;
@@ -8,21 +9,34 @@ namespace NetMaximum.ProtonLock.API.Controllers;
 public class LockController : ControllerBase
 {
     private readonly ILogger<LockController> _logger;
+    private readonly IClient _lockClient;
 
-    public LockController(ILogger<LockController> logger)
+    public LockController(ILogger<LockController> logger, IClient lockClient)
     {
         _logger = logger;
+        _lockClient = lockClient;
     }
 
     [HttpPost("with-fingerprint")]
-    public IActionResult Post(WithFingerPrint model)
+    public async Task<IActionResult> Post(WithFingerPrint model)
     {
-        return new OkResult();
+        return await CheckFingerprint(model);
     }
     
     [HttpPost("without-fingerprint")]
-    public IActionResult PostWithout(WithoutFingerPrint model)
+    public async Task<IActionResult> PostWithout(WithoutFingerPrint model)
     {
+        return await CheckFingerprint(model);
+    }
+
+    private async Task<IActionResult> CheckFingerprint(WithoutFingerPrint model)
+    {
+        var duplicate = await _lockClient.DuplicateOccurenceAsync(model);
+        if (duplicate)
+        {
+            return new ConflictResult();
+        }
+
         return new OkResult();
     }
 }

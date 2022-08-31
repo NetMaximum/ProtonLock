@@ -12,15 +12,24 @@ public class Client : IClient
         _connectionMultiplexer = connectionMultiplexer;
         _elapsed = elapsed;
     }
-    public async Task<bool> DuplicateOccurenceAsync(IFingerprint fingerprint)
+    public async Task<bool> DuplicateOccurenceAsync(object model)
     {
-        bool flag;
+        bool flag = false;
         
         try
         {
-            var key = fingerprint.FingerPrint();
-            flag = !await _connectionMultiplexer.GetDatabase(1)
-                .StringSetAsync(key, RedisValue.EmptyString, _elapsed,When.NotExists, CommandFlags.DemandMaster);  
+            if (model is IFingerprint fingerprint)
+            {
+                var key = fingerprint.FingerPrint();
+                flag = !await _connectionMultiplexer.GetDatabase(1)
+                    .StringSetAsync(
+                        key, 
+                        RedisValue.EmptyString, 
+                        _elapsed,
+                        When.NotExists, 
+                        CommandFlags.DemandMaster);
+            }
+              
         }  
         catch (Exception ex)  
         {

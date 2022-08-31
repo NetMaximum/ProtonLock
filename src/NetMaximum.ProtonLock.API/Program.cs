@@ -17,10 +17,9 @@ ConfigurationOptions configuration = new ConfigurationOptions
     User = "default",
     Password = "redispw"
 };
-configuration.EndPoints.Add("localhost:55032");
-var redisConnection  = await ConnectionMultiplexer.ConnectAsync(configuration, Console.Out);
+configuration.EndPoints.Add("localhost:55000");
 
-builder.Services.AddSingleton<IConnectionMultiplexer>(redisConnection);
+builder.Services.AddSingleton<IConnectionMultiplexer>(  _ => ConnectionMultiplexer.Connect(configuration, Console.Out));
 builder.Services.AddProtonLock();
 
 var app = builder.Build();
