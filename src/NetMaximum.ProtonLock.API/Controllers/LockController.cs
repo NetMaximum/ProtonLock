@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Netmaximum.ProtonLock;
 using NetMaximum.ProtonLock.API.Models;
 
 namespace NetMaximum.ProtonLock.API.Controllers;

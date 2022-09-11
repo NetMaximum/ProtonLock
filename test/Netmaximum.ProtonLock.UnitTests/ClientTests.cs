@@ -1,9 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Netmaximum.ProtonLock.UnitTests;
 using Xunit;
 
-namespace Netmaximum.ProtonLock.UnitTests;
+namespace NetMaximum.ProtonLock.UnitTests;
 
 public class ClientTests : IClassFixture<ClientFactory>
 {

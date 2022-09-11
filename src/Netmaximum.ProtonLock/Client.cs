@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace Netmaximum.ProtonLock;
+namespace NetMaximum.ProtonLock;
 
 public class Client : IClient
 {

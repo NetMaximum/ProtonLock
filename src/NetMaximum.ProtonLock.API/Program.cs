@@ -1,4 +1,6 @@
-using Netmaximum.ProtonLock.Extensions;
+using MediatR;
+using NetMaximum.ProtonLock.Extensions;
+using NetMaximum.ProtonLock.MediatR.Extensions;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,10 +19,13 @@ ConfigurationOptions configuration = new ConfigurationOptions
     User = "default",
     Password = "redispw"
 };
-configuration.EndPoints.Add("localhost:55000");
+configuration.EndPoints.Add("localhost:55039");
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(  _ => ConnectionMultiplexer.Connect(configuration, Console.Out));
 builder.Services.AddProtonLock();
+
+builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddProtonLockWithMediatR();
 
 var app = builder.Build();
 

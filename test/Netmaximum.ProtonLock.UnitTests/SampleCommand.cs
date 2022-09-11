@@ -1,6 +1,6 @@
 using System;
 
-namespace Netmaximum.ProtonLock.UnitTests;
+namespace NetMaximum.ProtonLock.UnitTests;
 
 public class SampleCommand : IFingerprint
 {

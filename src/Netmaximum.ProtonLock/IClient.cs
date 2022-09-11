@@ -1,4 +1,4 @@
-namespace Netmaximum.ProtonLock;
+namespace NetMaximum.ProtonLock;
 
 public interface IClient
 {

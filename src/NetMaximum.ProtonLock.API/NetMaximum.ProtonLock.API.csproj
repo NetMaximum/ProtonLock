@@ -13,7 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Netmaximum.ProtonLock\Netmaximum.ProtonLock.csproj" />
+      <ProjectReference Include="..\NetMaximum.ProtonLock.MediatR\NetMaximum.ProtonLock.MediatR.csproj" />
+      <ProjectReference Include="..\NetMaximum.ProtonLock\NetMaximum.ProtonLock.csproj" />
     </ItemGroup>
 
 </Project>
