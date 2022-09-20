@@ -46,13 +46,11 @@ jobs:
 
       - name: Pack
         if: github.ref == 'refs/heads/main'
-        run: dotnet pack src/NetMaximum.ProtonLock/NetMaximum.ProtonLock.csproj --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_MAJORMINORPATCH
+        run: dotnet pack ./NetMaximum.ProtonLock.sln --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_MAJORMINORPATCH
 
       - name: Pack
         if: github.event_name == 'pull_request'
-        run: dotnet pack src/NetMaximum.ProtonLock/NetMaximum.ProtonLock.csproj --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_NUGETVERSION
-
-
+        run: dotnet pack ./NetMaximum.ProtonLock.sln --configuration Release --no-restore --verbosity normal --output nupkgs -p:PackageVersion=$GITVERSION_NUGETVERSION
 
       - name: Push
         run: dotnet nuget push nupkgs/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
