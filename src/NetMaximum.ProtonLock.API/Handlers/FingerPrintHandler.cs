@@ -7,6 +7,6 @@ public class FingerPrintHandler : IRequestHandler<MediatRFingerPrint>
 {
     public Task<Unit> Handle(MediatRFingerPrint request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return Unit.Task;
     }
 }

@@ -51,7 +51,7 @@ public class ClientTests : IClassFixture<ClientFactory>
     }
 
     [Fact]
-    public async Task Given_a_fingerprint_that_has_been_seen_within_a_timespan_when_the_timespan_is_elapsed_then_duplicate_occurrence_is_false()
+    public async Task Given_an_fingerprint_that_has_been_seen_within_a_timespan_when_the_timespan_is_elapsed_then_duplicate_occurrence_is_false()
     {
         // Arrange
         var subject = new Client(_clientFactory.RedisConnection, TimeSpan.FromMilliseconds(100));
@@ -68,5 +68,19 @@ public class ClientTests : IClassFixture<ClientFactory>
         // Assert
         result.Should().BeFalse();
         duplicateResult.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task Given_an_exception_when_thrown_then_duplicate_occurrence_is_true()
+    {
+        // Arrange
+        var subject = new Client(_clientFactory.RedisConnection, TimeSpan.FromSeconds(10));
+        var fingerprint = new SampleCommandWithException();
+        
+        // Act
+        var result = await  subject.DuplicateOccurenceAsync(fingerprint);
+        
+        // Assert
+        result.Should().BeTrue();
     }
 }

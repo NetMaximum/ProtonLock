@@ -22,10 +22,10 @@ ConfigurationOptions configuration = new ConfigurationOptions
 configuration.EndPoints.Add("localhost:55039");
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(  _ => ConnectionMultiplexer.Connect(configuration, Console.Out));
-builder.Services.AddProtonLock();
 
 builder.Services.AddMediatR(typeof(Program));
-builder.Services.AddProtonLockWithMediatR();
+builder.Services.AddProtonLock(namedSection: builder.Configuration.GetSection("ProtonLock"));
+builder.Services.AddProtonLockWithMediatR(namedSection: builder.Configuration.GetSection("ProtonLock"));
 
 var app = builder.Build();
 
@@ -36,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

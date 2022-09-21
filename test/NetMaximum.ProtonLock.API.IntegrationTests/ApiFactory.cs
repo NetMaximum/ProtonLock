@@ -16,7 +16,7 @@ public class ApiFactory : WebApplicationFactory<IMarker>, IAsyncLifetime
         .WithDatabase(new RedisTestcontainerConfiguration())
         .Build();
 
-    private IConnectionMultiplexer _connectionMultiplexer;
+    private IConnectionMultiplexer? _connectionMultiplexer;
     
     public async Task InitializeAsync()
     {
@@ -30,11 +30,11 @@ public class ApiFactory : WebApplicationFactory<IMarker>, IAsyncLifetime
         builder.ConfigureTestServices(collection =>
         {
             collection.RemoveAll(typeof(IConnectionMultiplexer));
-            collection.AddSingleton<IConnectionMultiplexer>(_connectionMultiplexer);
+            collection.AddSingleton(_connectionMultiplexer!);
         });
     }
 
-    public async Task DisposeAsync()
+    public new async Task DisposeAsync()
     {
         await _redis.StopAsync();
     }

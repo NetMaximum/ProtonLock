@@ -13,7 +13,7 @@ public class ClientFactory : IAsyncLifetime
         .WithDatabase(new RedisTestcontainerConfiguration())
         .Build();
 
-    public IConnectionMultiplexer RedisConnection { get; private set; }
+    public IConnectionMultiplexer RedisConnection { get; private set; } = null!;
 
     public async Task InitializeAsync()
     {

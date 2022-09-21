@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NetMaximum.ProtonLock.API.Models;
+using NetMaximum.ProtonLock.Exceptions;
 
 namespace NetMaximum.ProtonLock.API.Controllers;
 
@@ -20,17 +21,31 @@ public class MediatRController : ControllerBase
     [HttpPost("with-fingerprint")]
     public async Task<IActionResult> Post(WithFingerPrint model)
     {
-        await _mediator.Send(new MediatRFingerPrint
+        try
         {
-            Name = "Test Name"
-        });
+            await _mediator.Send(new MediatRFingerPrint
+            {
+                Name = model.Name
+            });
+        }
+        catch (ConcurrencyException e)
+        {
+            return Conflict();
+        }
         
-        return Accepted();
+        return Ok();
     }
     
     [HttpPost("without-fingerprint")]
     public async Task<IActionResult> PostWithout(WithoutFingerPrint model)
     {
-        return null;
+        
+        
+        await _mediator.Send(new MediatRWithoutFingerPrint()
+        {
+            Name = model.Name
+        });
+        
+        return Ok();
     }
 }

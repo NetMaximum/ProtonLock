@@ -1,11 +1,13 @@
+﻿using System;
+
 namespace NetMaximum.ProtonLock.UnitTests;
 
-public class SampleCommand : IFingerprint
+public class SampleCommandWithException : IFingerprint
 {
     public string Id { get; init; } = string.Empty;
     
     public string FingerPrint()
     {
-        return Id;
+        throw new NotImplementedException();
     }
 }

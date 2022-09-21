@@ -31,7 +31,7 @@ public class Client : IClient
             }
               
         }  
-        catch (Exception ex)  
+        catch (Exception)  
         {
             flag = true;  
         }  

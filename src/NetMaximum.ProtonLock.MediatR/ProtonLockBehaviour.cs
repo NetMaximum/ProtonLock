@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using NetMaximum.ProtonLock.Exceptions;
 
 namespace NetMaximum.ProtonLock.MediatR;
 
@@ -13,7 +14,12 @@ public class ProtonLockBehaviour<TRequest, TResponse>  : IPipelineBehavior<TRequ
 
     public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
     {
+        
         var result = await _lockClient.DuplicateOccurenceAsync(request);
-        return default;
+        if (result)
+        {
+            throw new ConcurrencyException();
+        }
+        return await next();
     }
 }
