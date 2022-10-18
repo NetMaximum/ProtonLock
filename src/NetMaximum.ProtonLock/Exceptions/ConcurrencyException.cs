@@ -1,6 +1,6 @@
 ﻿namespace NetMaximum.ProtonLock.Exceptions;
 
-public class ConcurrencyException : Exception
+public class ConcurrencyException : ProtonLockException
 {
     public ConcurrencyException()
     {

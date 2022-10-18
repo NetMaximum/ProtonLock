@@ -31,8 +31,10 @@ public class Client : IClient
             }
               
         }  
-        catch (Exception)  
+        catch (Exception)   
         {
+            // Todo : Matt Review
+            // Throw out a proton exception and also config this
             flag = true;  
         }  
   
