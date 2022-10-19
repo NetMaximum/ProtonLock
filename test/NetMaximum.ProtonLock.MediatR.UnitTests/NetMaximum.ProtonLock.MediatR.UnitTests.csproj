@@ -35,4 +35,8 @@
         <ProjectReference Include="..\..\src\NetMaximum.ProtonLock.MediatR\NetMaximum.ProtonLock.MediatR.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Exceptions" />
+    </ItemGroup>
+
 </Project>

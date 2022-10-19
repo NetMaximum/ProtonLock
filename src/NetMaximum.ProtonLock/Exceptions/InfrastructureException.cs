@@ -1,6 +1,4 @@
-using NetMaximum.ProtonLock.Exceptions;
-
-namespace NetMaximum.ProtonLock.MediatR.Exceptions;
+namespace NetMaximum.ProtonLock.Exceptions;
 
 public class InfrastructureException : ProtonLockException
 {

@@ -1,4 +1,5 @@
-﻿using StackExchange.Redis;
+﻿using NetMaximum.ProtonLock.Exceptions;
+using StackExchange.Redis;
 
 namespace NetMaximum.ProtonLock;
 
@@ -31,11 +32,9 @@ public class Client : IClient
             }
               
         }  
-        catch (Exception)   
+        catch (Exception ex)
         {
-            // Todo : Matt Review
-            // Throw out a proton exception and also config this
-            flag = true;  
+            throw new InfrastructureException(ex.Message);
         }  
   
         return flag;  

@@ -28,4 +28,8 @@
       <ProjectReference Include="..\NetMaximum.ProtonLock\NetMaximum.ProtonLock.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Exceptions" />
+    </ItemGroup>
+
 </Project>

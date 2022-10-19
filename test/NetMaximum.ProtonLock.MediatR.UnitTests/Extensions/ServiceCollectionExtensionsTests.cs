@@ -1,7 +1,7 @@
 using FluentAssertions;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using NetMaximum.ProtonLock.MediatR.Exceptions;
+using NetMaximum.ProtonLock.Exceptions;
 using NetMaximum.ProtonLock.MediatR.Extensions;
 using ServiceCollectionExtensions = NetMaximum.ProtonLock.MediatR.Extensions.ServiceCollectionExtensions;
 

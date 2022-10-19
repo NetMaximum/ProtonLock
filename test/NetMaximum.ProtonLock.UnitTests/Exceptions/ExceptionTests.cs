@@ -18,7 +18,7 @@ public class ExceptionTests
     }
     
     [Fact]
-    public void Given_a_series_of_exceptions_they_should_all_derive_from_protonbase()
+    public void Given_a_series_of_exceptions_when_implemented_then_should_all_derive_from_protonbase()
     {
         // Arrange - Act
         var types = Types.InAssembly(typeof(ProtonLockException).Assembly)

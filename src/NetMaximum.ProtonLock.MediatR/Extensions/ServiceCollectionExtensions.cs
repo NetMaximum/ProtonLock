@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using NetMaximum.ProtonLock.MediatR.Exceptions;
+using NetMaximum.ProtonLock.Exceptions;
 using StackExchange.Redis;
 
 namespace NetMaximum.ProtonLock.MediatR.Extensions;
