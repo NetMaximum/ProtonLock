@@ -88,6 +88,8 @@ Setup default timeout. This is usually be stored in your app.*.json configuratio
 
 Add ProtonLock to IOC. (Usually Program.cs)
 
+**ProtonLock must be added after you've configured mediatoR, it won't setup this up!**
+
 ```csharp
 builder.Services.AddProtonLockWithMediatR(namedSection: builder.Configuration.GetSection("ProtonLock"));
 ```
