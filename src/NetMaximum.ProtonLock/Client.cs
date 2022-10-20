@@ -1,4 +1,5 @@
-﻿using StackExchange.Redis;
+﻿using NetMaximum.ProtonLock.Exceptions;
+using StackExchange.Redis;
 
 namespace NetMaximum.ProtonLock;
 
@@ -20,20 +21,20 @@ public class Client : IClient
         {
             if (model is IFingerprint fingerprint)
             {
-                var key = fingerprint.FingerPrint();
+                var requirement = fingerprint.FingerPrint();
                 flag = !await _connectionMultiplexer.GetDatabase(1)
                     .StringSetAsync(
-                        key, 
+                        requirement.Fingerprint, 
                         RedisValue.EmptyString, 
-                        _elapsed,
+                        requirement.Duration ?? _elapsed,
                         When.NotExists, 
                         CommandFlags.DemandMaster);
             }
               
         }  
-        catch (Exception)  
+        catch (Exception ex)
         {
-            flag = true;  
+            throw new InfrastructureException(ex.Message, ex);
         }  
   
         return flag;  

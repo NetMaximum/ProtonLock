@@ -2,8 +2,8 @@ namespace NetMaximum.ProtonLock.API.Models;
 
 public class WithFingerPrint : WithoutFingerPrint, IFingerprint
 {
-    public string FingerPrint()
+    public Requirement FingerPrint()
     {
-        return Name;
+        return new Requirement(Name);
     }
 }

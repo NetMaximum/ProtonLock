@@ -1,16 +1,23 @@
 # NetMaximum.ProtonLock 
 
-ProtonLock is a simple library that leverages Redis to provide a mechanism to deal with concurrency issues. 
+[![https://img.shields.io/nuget/v/netmaximum.protonlock?style=for-the-badge](https://img.shields.io/nuget/v/netmaximum.protonlock?style=for-the-badge)](https://www.nuget.org/packages/NetMaximum.ProtonLock "Markdown Land")
 
 
-Examples available [https://github.com/NetMaximum/ProtonLock](https://github.com/NetMaximum/ProtonLock)
+ProtonLock is a simple library that leverages Redis to provide a mechanism to deal with concurrency issues. In the future other backends will be supported such as :
+
+* Postgres
+* Sql Server
+
+
+## Examples
+
+The quickest way to get up and running is to look at the test folder available at [https://github.com/NetMaximum/ProtonLock](https://github.com/NetMaximum/ProtonLock).
 
 ## Installation
 
 ## Core Library
 
-
-Setup default timeout.
+Setup default timeout. This is usually stored in your app.*.json configuration file.
 
 ```json
 {
@@ -26,7 +33,7 @@ Setup default timeout.
   }
 }
 ```
-Add ProtonLock to IOC.
+Add ProtonLock to IOC. (Usually Program.cs)
 
 ```csharp
 
@@ -62,7 +69,7 @@ public class LockController : ControllerBase
 
 ## With MediatR
 
-Setup default timeout.
+Setup default timeout. This is usually be stored in your app.*.json configuration file.
 
 ```json
 {
@@ -79,11 +86,33 @@ Setup default timeout.
 }
 ```
 
-Add ProtonLock to IOC.
+Add ProtonLock to IOC. (Usually Program.cs)
+
+**ProtonLock must be added after you've configured mediatoR, it won't setup this up!**
 
 ```csharp
 builder.Services.AddProtonLockWithMediatR(namedSection: builder.Configuration.GetSection("ProtonLock"));
 ```
+
+Next an object that implements ```IFingerPrint``` needs to be implemented:
+
+```csharp
+public class MediatRFingerPrint : IFingerprint, IRequest<Unit>
+{
+    public string Name { get; set; } = string.Empty;
+    public int age { get; set; } = 10;
+    
+    public string FingerPrint()
+    {
+        
+        return Name + age;
+    }
+    // Async Task for allowing other things....
+}
+```
+When the pipeline behaviour in mediator detects this interface it'll call the ```FingerPrint``` method and check with the backend store for potential concurrency issues. If a concurrency issue is detected a ```ConcurrencyException``` will be thrown.
+
+
 Use ProtonLock
 
 ```csharp

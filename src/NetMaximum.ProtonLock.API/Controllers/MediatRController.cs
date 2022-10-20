@@ -28,7 +28,7 @@ public class MediatRController : ControllerBase
                 Name = model.Name
             });
         }
-        catch (ConcurrencyException e)
+        catch (ConcurrencyException)
         {
             return Conflict();
         }

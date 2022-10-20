@@ -5,9 +5,10 @@ namespace NetMaximum.ProtonLock.API.Models;
 public class MediatRFingerPrint : IFingerprint, IRequest<Unit>
 {
     public string Name { get; set; } = string.Empty;
+    public int age { get; set; } = 10;
     
-    public string FingerPrint()
+    public Requirement FingerPrint()
     {
-        return Name;
+        return new Requirement(Name + age);
     }
 }
