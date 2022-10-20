@@ -70,6 +70,31 @@ public class ClientTests : IClassFixture<ClientFactory>
         duplicateResult.Should().BeFalse();
     }
 
+    [Theory]
+    [InlineData(200)]
+    [InlineData(400)]
+    [InlineData(600)]
+    public async Task Given_an_fingerprint_with_a_custom_duration_when_duplicates_are_checked_then_the_duration_is_honoured(int delayInMilliseconds)
+    {
+        // Arrange
+        var subject = new Client(_clientFactory.RedisConnection, TimeSpan.FromMilliseconds(100));
+        var fingerprint = new SampleCommandWithDuration
+        {
+            Id = Guid.NewGuid().ToString(),
+            Duration = TimeSpan.FromMilliseconds(delayInMilliseconds)
+            
+        };
+        
+        // Act
+        var result = await subject.DuplicateOccurenceAsync(fingerprint);
+        await Task.Delay(delayInMilliseconds / 2);
+        var duplicateResult = await subject.DuplicateOccurenceAsync(fingerprint);
+        
+        // Assert
+        result.Should().BeFalse();
+        duplicateResult.Should().BeTrue();
+    }
+    
     [Fact]
     public async Task Given_an_exception_inside_redis_when_thrown_then_duplicate_occurrence_then_an_exception_is_thrown()
     {

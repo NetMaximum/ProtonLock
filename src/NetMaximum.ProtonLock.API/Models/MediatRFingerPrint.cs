@@ -7,10 +7,8 @@ public class MediatRFingerPrint : IFingerprint, IRequest<Unit>
     public string Name { get; set; } = string.Empty;
     public int age { get; set; } = 10;
     
-    public string FingerPrint()
+    public Requirement FingerPrint()
     {
-        
-        return Name + age;
+        return new Requirement(Name + age);
     }
-    // Async Task for allowing other things....
 }

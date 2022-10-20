@@ -2,10 +2,6 @@ namespace NetMaximum.ProtonLock.Exceptions;
 
 public class InfrastructureException : ProtonLockException
 {
-    public InfrastructureException()
-    {
-    }
-
     public InfrastructureException(string message)
         : base(message)
     {

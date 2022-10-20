@@ -21,12 +21,12 @@ public class Client : IClient
         {
             if (model is IFingerprint fingerprint)
             {
-                var key = fingerprint.FingerPrint();
+                var requirement = fingerprint.FingerPrint();
                 flag = !await _connectionMultiplexer.GetDatabase(1)
                     .StringSetAsync(
-                        key, 
+                        requirement.Fingerprint, 
                         RedisValue.EmptyString, 
-                        _elapsed,
+                        requirement.Duration ?? _elapsed,
                         When.NotExists, 
                         CommandFlags.DemandMaster);
             }
@@ -34,7 +34,7 @@ public class Client : IClient
         }  
         catch (Exception ex)
         {
-            throw new InfrastructureException(ex.Message);
+            throw new InfrastructureException(ex.Message, ex);
         }  
   
         return flag;  
