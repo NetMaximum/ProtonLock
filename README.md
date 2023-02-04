@@ -1,4 +1,4 @@
-# NetMaximum.ProtonLock 
+# NetMaximum.ProtonLock [![codecov](https://codecov.io/gh/NetMaximum/ProtonLock/branch/main/graph/badge.svg?token=H0HLMWH818)](https://codecov.io/gh/NetMaximum/ProtonLock)
 
 [![https://img.shields.io/nuget/v/netmaximum.protonlock?style=for-the-badge](https://img.shields.io/nuget/v/netmaximum.protonlock?style=for-the-badge)](https://www.nuget.org/packages/NetMaximum.ProtonLock "Markdown Land")
 
