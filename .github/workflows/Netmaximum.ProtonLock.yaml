@@ -24,13 +24,17 @@ jobs:
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.15
         with:
-          versionSpec: '5.6.x'
-
-      - name: Determine Version
-        id: gitversion
+          versionSpec: '5.x'
+            
+      - name: Use GitVersion
+        id: gitversion # step id used as reference for output values
         uses: gittools/actions/gitversion/execute@v0.9.15
         with:
           useConfigFile: true
+          configFilePath: GitVersion.yml
+
+      - name: What version
+        run: echo ${{ steps.gitversion.outputs.semVer }}
 
       - name: Install dependencies
         run: dotnet restore
