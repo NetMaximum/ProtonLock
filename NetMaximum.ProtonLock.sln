@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMaximum.ProtonLock.UnitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMaximum.ProtonLock.MediatR.UnitTests", "test\NetMaximum.ProtonLock.MediatR.UnitTests\NetMaximum.ProtonLock.MediatR.UnitTests.csproj", "{3FE594B3-26FA-4919-AE86-0885FCB9D33D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMaximum.ProtonLock.Net7.Api", "src\NetMaximum.ProtonLock.Net7.Api\NetMaximum.ProtonLock.Net7.Api.csproj", "{8225DF5F-AE57-4246-9060-AE776A0E754A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,18 @@ Global
 		{3FE594B3-26FA-4919-AE86-0885FCB9D33D}.Release|x64.Build.0 = Release|Any CPU
 		{3FE594B3-26FA-4919-AE86-0885FCB9D33D}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FE594B3-26FA-4919-AE86-0885FCB9D33D}.Release|x86.Build.0 = Release|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Debug|x64.Build.0 = Debug|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Debug|x86.Build.0 = Debug|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Release|x64.ActiveCfg = Release|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Release|x64.Build.0 = Release|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Release|x86.ActiveCfg = Release|Any CPU
+		{8225DF5F-AE57-4246-9060-AE776A0E754A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
