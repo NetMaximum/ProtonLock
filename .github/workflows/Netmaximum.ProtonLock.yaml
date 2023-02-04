@@ -16,6 +16,11 @@ jobs:
       - name: Fetch all history for all tags and branches
         run: git fetch --prune --unshallow
 
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.x.x
+
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.11
         with:
@@ -26,11 +31,6 @@ jobs:
         uses: gittools/actions/gitversion/execute@v0.9.11
         with:
           useConfigFile: true
-
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 6.x.x
 
       - name: Install dependencies
         run: dotnet restore
