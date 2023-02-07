@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "support", "support", "{B051
 		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMaximum.ProtonLock.API", "src\NetMaximum.ProtonLock.API\NetMaximum.ProtonLock.API.csproj", "{177A492B-8AFD-4E68-90F2-FE285B4D79E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMaximum.ProtonLock.Net6.API", "src\NetMaximum.ProtonLock.Net6.API\NetMaximum.ProtonLock.Net6.API.csproj", "{177A492B-8AFD-4E68-90F2-FE285B4D79E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMaximum.ProtonLock.API.IntegrationTests", "test\NetMaximum.ProtonLock.API.IntegrationTests\NetMaximum.ProtonLock.API.IntegrationTests.csproj", "{FD12F045-4DDD-4DAD-B3A6-1A526C45C73E}"
 EndProject

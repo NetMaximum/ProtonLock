@@ -6,6 +6,11 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+
+#if NET7_0
+using NetMaximum.ProtonLock.Net7.Api;
+#endif
+
 using StackExchange.Redis;
 
 namespace NetMaximum.ProtonLock.API.IntegrationTests;

@@ -1,7 +1,7 @@
 using MediatR;
-using NetMaximum.ProtonLock.API.Models;
+using NetMaximum.ProtonLock.Net6.API.Models;
 
-namespace NetMaximum.ProtonLock.API.Handlers;
+namespace NetMaximum.ProtonLock.Net6.API.Handlers;
 
 public class FingerPrintHandler : IRequestHandler<MediatRFingerPrint>
 {

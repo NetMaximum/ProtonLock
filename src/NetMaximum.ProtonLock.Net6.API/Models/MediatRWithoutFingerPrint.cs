@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace NetMaximum.ProtonLock.API.Models;
+namespace NetMaximum.ProtonLock.Net6.API.Models;
 
 public class MediatRWithoutFingerPrint : IRequest<Unit>
 {
