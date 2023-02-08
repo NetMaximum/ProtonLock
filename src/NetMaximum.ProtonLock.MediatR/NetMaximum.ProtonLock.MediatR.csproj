@@ -8,7 +8,7 @@
         <RepositoryUrl>https://github.com/NetMaximum/ProtonLock</RepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <DebugType>embedded</DebugType>
-        <PackageLicenseExpression>AGPL-3.0</PackageLicenseExpression>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
