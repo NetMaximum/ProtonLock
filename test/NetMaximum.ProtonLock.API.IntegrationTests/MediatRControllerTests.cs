@@ -7,13 +7,11 @@ namespace NetMaximum.ProtonLock.API.IntegrationTests;
 
 public class MediatRControllerTests : IClassFixture<ApiFactory>
 {
-    private readonly ApiFactory _apiFactory;
     private readonly ITestOutputHelper _testOutputHelper;
     private readonly HttpClient _httpClient;
 
     public MediatRControllerTests(ApiFactory apiFactory, ITestOutputHelper testOutputHelper)
     {
-        _apiFactory = apiFactory;
         _testOutputHelper = testOutputHelper;
         _httpClient = apiFactory.CreateClient();
     }

@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NetMaximum.ProtonLock.API.Models;
 using NetMaximum.ProtonLock.Exceptions;
+using NetMaximum.ProtonLock.Net7.Api.Models;
 
-namespace NetMaximum.ProtonLock.API.Controllers;
+namespace NetMaximum.ProtonLock.Net7.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]

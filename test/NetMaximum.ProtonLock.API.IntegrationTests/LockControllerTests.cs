@@ -6,12 +6,10 @@ namespace NetMaximum.ProtonLock.API.IntegrationTests;
 
 public class LockControllerTests : IClassFixture<ApiFactory>
 {
-    private readonly ApiFactory _apiFactory;
     private readonly HttpClient _httpClient;
 
     public LockControllerTests(ApiFactory apiFactory)
     {
-        _apiFactory = apiFactory;
         _httpClient = apiFactory.CreateClient();
     }
 

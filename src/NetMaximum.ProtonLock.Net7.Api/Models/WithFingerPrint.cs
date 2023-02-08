@@ -1,4 +1,4 @@
-namespace NetMaximum.ProtonLock.API.Models;
+namespace NetMaximum.ProtonLock.Net7.Api.Models;
 
 public class WithFingerPrint : WithoutFingerPrint, IFingerprint
 {
